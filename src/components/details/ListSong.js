@@ -1,14 +1,16 @@
-import React, { useContext, useState } from 'react';
-import Songs from '../../Context';
+import React, { useContext, useEffect, useState } from 'react';
+import { Songs } from '../../Context';
 
 const ListSong = () => {
-    const { DataSongs } = useContext(Songs);
+    const { DataSongs, handleSetSong, song } = useContext(Songs);
     const [idSong, setIdSong] = useState(1);
     const handlePlaySong = (song) => {
-        setIdSong(song);
+        setIdSong(song)
+        handleSetSong(idSong)
     }
-    console.log(idSong);
-    console.log('id: '+idSong);
+    useEffect(() =>{
+        setIdSong(song.id)
+    }, [song])
     return (
         
         <div className='col-span-2 overflow-y-scroll'>

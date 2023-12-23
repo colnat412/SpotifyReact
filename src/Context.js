@@ -1,5 +1,3 @@
-import React from 'react';
+import React from 'react'
 
-const Songs = React.createContext();
-
-export default Songs;
+export const Songs = React.createContext()
